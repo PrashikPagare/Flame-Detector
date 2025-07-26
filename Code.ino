@@ -1,18 +1,23 @@
 const int Sensor = 2;
+const int buzzer = 3
+const int LED = 4
 int value;
 
 void setup(){
   pinMode(Sensor, INPUT);
-  Serial.begin(9600);
+  pinMode(buzzer, OUTPUT);
+  pinMode(LED, OUTPUT);
 }
 
 void loop(){
   value = digitalRead(Sensor);
 
   if (value == 1){
-    Serial.println("Flame Detected");
+    digitalWrite(buzzer, HIGH);
+    digitalWrite(LED, HIGH);
   }else {
-    Serial.println("Flame Not Detected");
+    digitalWrite(buzzer, LOW);
+    digitalWrite(LED, LOW);
   }
   delay(1000);
 }
